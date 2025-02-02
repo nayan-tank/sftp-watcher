@@ -1,0 +1,14 @@
+[Unit]
+Description=SFTP WATCH
+After=network.target
+
+[Service]
+ExecStart=/tmp/sftp-watch/watch.sh
+Restart=always
+RestartSec=5
+StandardOutput=append:/tmp/sftp-watch/sftp_activity.log
+StandardError=append:/tmp/sftp-watch/sftp_activity_error.log
+#User=root  # Or another user if you don't want it to run as root
+
+[Install]
+WantedBy=multi-user.target
